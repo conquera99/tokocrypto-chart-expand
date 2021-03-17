@@ -1,0 +1,31 @@
+{
+    "manifest_version": 2,
+    "name": "Tokocrypto Charts Expand",
+    "description": "Expand tokocrypto charts container to full width",
+    "version": "1.0.0",
+    "author": "conquera99",
+    "browser_action": {
+        "default_title": "Expand"
+    },
+
+    "permissions": [
+        "activeTab",
+		"storage",
+        "webNavigation",
+        "http://*/",
+        "https://*/"
+    ],
+    "background": {
+        "page": "active.html",
+        "persistent": true
+    },
+    "icons": { "128": "imgs/tokocrypto-on.png" },
+
+    "content_scripts": [
+        {
+            "matches": ["https://www.tokocrypto.com/*/trade/*"],
+            "js": ["content.js"],
+            "run_at": "document_end"
+        }
+    ]
+}
